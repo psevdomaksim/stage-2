@@ -10,13 +10,19 @@
 }
 
 .logo {
-  width: 12%;
+  width: 150px;
 }
 
 nav {
   display: flex;
   flex-direction: column;
   margin: 3rem 0;
+}
+
+.navicon {
+  display: none;
+  width: 32px;
+  cursor: pointer;
 }
 
 .nav-header {
@@ -73,20 +79,22 @@ nav {
 
 main {
   background-color: #ebf2f2;
+  width: 100%;
+  height: auto;
 }
 
-.main-wrapper {
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 30px;
+  width: 100%;
 }
 
-.main-card {
+.card {
   align-items: center;
   display: flex;
   height: 11rem;
-  width: 100%;
   border: 1px solid #d9e9e9;
   border-radius: 5px;
   padding: 30px 20px;
@@ -96,22 +104,60 @@ main {
   cursor: pointer;
 }
 
-.main-card:hover {
+.card:hover {
   box-shadow: 0px 0px 15px 10px rgba(34, 60, 80, 0.1);
   transform: translate(0px, -5px);
 }
 
-.main-card img {
-  min-width: 100px;
+.card img {
+  max-width: 80px;
   margin-right: 25px;
 }
 
-.main-card-description {
+.card-description {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 1200px) {
-  .main-card {
-    flex-basis: calc((90% - 20px) / 3);
+.card-description h1 {
+  margin-bottom: 10px;
+}
+
+/* media requests */
+
+@media (min-width: 1000px) {
+  .card {
+    width: calc((90% - 20px) / 3);
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-list {
+    display: none;
+  }
+  .navicon {
+    display: block;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .cards {
+    width: 100%;
+  }
+  .card {
+    width: 40%;
+  }
+  .nav-description {
+    padding-right: 5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+  .nav-description {
+    padding: 0 1rem;
   }
 }
 
