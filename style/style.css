@@ -8,11 +8,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
 }
 
 .navicon {
   display: none;
-  width: 32px;
+  width: 40px;
   cursor: pointer;
 }
 
@@ -108,7 +109,7 @@ hr {
   transform: rotate(-45deg);
   transform-origin: center;
   width: 0.525em;
-  top: 26px;
+  top: 36px;
   margin-left: 7px;
 }
 
@@ -185,8 +186,9 @@ main {
   .card {
     width: 40%;
   }
-  .header-description {
-    padding-right: 5rem;
+  .header-description,
+  .header-h1 {
+    padding: 0 1rem;
   }
 }
 
