@@ -4,19 +4,10 @@
   margin: 0 auto;
 }
 
-.flex-container {
+.flex-wrapper {
   display: flex;
   justify-content: space-between;
-}
-
-.logo {
-  width: 150px;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  margin: 3rem 0;
+  align-items: center;
 }
 
 .navicon {
@@ -25,14 +16,33 @@ nav {
   cursor: pointer;
 }
 
-.nav-header {
+.logo {
+  max-height: 50px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+header h1 {
   font-size: 3.5rem;
 }
-.nav-description {
+h1 {
+  font-family: "Metropolis", sans-serif;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+
+.header-description {
   font-size: 1.5rem;
   line-height: 2.2rem;
   margin-top: 20px;
   padding-right: 20rem;
+  font-weight: 400;
 }
 
 .nav-list {
@@ -42,11 +52,18 @@ nav {
   align-content: center;
 }
 .nav-list li {
+  color: #111;
+  font-family: Metropolis, sans-serif;
   font-size: 0.95rem;
-  font-weight: bold;
+  font-weight: 700;
   min-height: 100%;
-  margin-right: 25px;
+  padding-right: 50px;
   line-height: 35px;
+}
+
+hr {
+  border: 1px solid #ebf2f2;
+  margin: 0;
 }
 
 .dropdown-content {
@@ -60,12 +77,14 @@ nav {
 }
 
 .dropdown-content li {
-  margin-bottom: 7px;
+  padding-bottom: 7px;
 }
 
 .dropdown-content li a {
   color: black;
-  font-weight: 500;
+  font-weight: 400;
+  font-family: Open Sans, sans-serif;
+  font-size: 1rem;
   text-decoration: none;
 }
 
@@ -75,6 +94,22 @@ nav {
 
 .dropdown-content li a:hover {
   color: #6db33f;
+}
+
+.nav-link::after {
+  border-bottom: 2px solid #111;
+  border-left: 2px solid #111;
+  border-radius: 2px;
+  border-right: 0;
+  border-top: 0;
+  content: " ";
+  height: 0.525em;
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  width: 0.525em;
+  top: 26px;
+  margin-left: 7px;
 }
 
 main {
@@ -119,6 +154,7 @@ main {
 .card-description {
   display: flex;
   flex-direction: column;
+  line-height: 1.7rem;
 }
 
 .card-description h1 {
@@ -149,7 +185,7 @@ main {
   .card {
     width: 40%;
   }
-  .nav-description {
+  .header-description {
     padding-right: 5rem;
   }
 }
@@ -158,12 +194,13 @@ main {
   .card {
     width: 100%;
   }
-  .nav-description {
+  .header-description,
+  .header-h1 {
     padding: 0 1rem;
   }
 }
 
-* {
+body {
   margin: 0;
   box-sizing: inherit;
   font-style: normal;
