@@ -13,6 +13,7 @@
 
     <title>Spring</title>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
@@ -21,66 +22,42 @@
         <div class="navbar-wrapper">
           <img class="logo" src="images/logo.png" />
           <div class="burger_icon" id="hamburger_button">
-            <div class="burger_icon_line" id="brg_line_1" style="top:16px"></div>
-            <div class="burger_icon_line" id="brg_line_2" style="top:23px"></div>
-            <div class="burger_icon_line" id="brg_line_3" style="top:30px"></div>
+            <div
+              class="burger_icon_line"
+              id="brg_line_1"
+              style="top: 16px"
+            ></div>
+            <div
+              class="burger_icon_line"
+              id="brg_line_2"
+              style="top: 23px"
+            ></div>
+            <div
+              class="burger_icon_line"
+              id="brg_line_3"
+              style="top: 30px"
+            ></div>
           </div>
           <div class="burger" id="burger">
-            <ul class="burger_menu"  >
-              <li><a href="#">Why Spring</a></li>
-              <li><a href="#">Learn</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Academy</a></li>
-              <li><a href="#">Solutions</a></li>
-              <li><a href="#">Community</a></li>
-            </ul>   
+            <ul class="burger_menu" id="burger_menu">
+              <!-- 
+              <li>
+                <span class="burger-navlink" id="burger-navlink-2"
+                  >Why Spring
+                  <span class="burger-arrow" id="burger-arrow-2"></span>
+                </span>
+
+                <ul class="burger-dropdown" id="burger-dropdown-2">
+                  <li><a href="">Дропдаунич</a></li>
+                  <li><a href="">Дропдаунич</a></li>
+                  <li><a href="">Дропдаунич</a></li>
+                  <li><a href="">Дропдаунич</a></li>
+                  <li><a href="">Дропдаунич</a></li>
+                </ul>
+              </li> -->
+            </ul>
           </div>
-          <ul class="nav-list">
-            <li>
-              <span class="nav-link">Why spring</span>
-              <ul class="dropdown-content">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Microservices</a></li>
-                <li><a href="#">Reactive</a></li>
-                <li><a href="#">Event Driven</a></li>
-                <li><a href="#">Cloud</a></li>
-                <li><a href="#">Web Applications</a></li>
-                <li><a href="#">Serverless</a></li>
-                <li><a href="#">Batch</a></li>
-              </ul>
-            </li>
-            <li>
-              <span class="nav-link">Learn</span>
-              <ul class="dropdown-content">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Quickstart</a></li>
-                <li><a href="#">Guides</a></li>
-                <li><a href="#">Blog</a></li>
-              </ul>
-            </li>
-            <li>
-              <span class="nav-link">Projects</span>
-              <ul class="dropdown-content">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Spring boot</a></li>
-                <li><a href="#">Spring framework</a></li>
-                <li><a href="#">Spring cloud</a></li>
-                <li><a href="#">Spring cloud data flow</a></li>
-                <li><a href="#">Spring data</a></li>
-                <li><a href="#">Spring security</a></li>
-              </ul>
-            </li>
-            <li>Training</li>
-            <li>Support</li>
-            <li>
-              <span class="nav-link">Community</span>
-              <ul class="dropdown-content">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Authors</a></li>
-              </ul>
-            </li>
-          </ul>
+          <ul class="nav-list" id="nav-list"></ul>
         </div>
       </div>
     </nav>
@@ -99,13 +76,14 @@
       </div>
     </header>
     <main>
-      <section class="cards" id = "cards"></section>
+      <section class="cards" id="cards"></section>
     </main>
 
     <script src="script/store.js"></script>
     <script src="script/burgerButton.js"></script>
     <script src="script/cardManager.js"></script>
+    <script src="script/navbarItem.js"></script>
+    <script src="script/burgerMenuItem.js"></script>
     <script src="script/app.js"></script>
-
   </body>
 </html>

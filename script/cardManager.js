@@ -8,7 +8,6 @@ class Cards {
     this.cardsWrapper = document.getElementById("cards");
   }
 
-
   //filling cards wrapper
   fillCards = function (cards) {
     for (let i = 0; i < cards.length; i++) {
@@ -55,6 +54,3 @@ class CardManager {
     this.descriptionParagraph.innerText = description;
   }
 }
-
-
-

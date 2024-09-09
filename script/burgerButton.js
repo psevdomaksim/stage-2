@@ -5,7 +5,8 @@ const brg_line_1 = document.getElementById("brg_line_1");
 const brg_line_2 = document.getElementById("brg_line_2");
 const brg_line_3 = document.getElementById("brg_line_3");
 
-const burgerFunc = () => {
+const toggleBurgerButton = () => {
+
   if (burger.style.visibility == "visible") {
     burger.style.visibility = "hidden";
     burger.style.top = "-740px";
@@ -28,3 +29,19 @@ const burgerFunc = () => {
     brg_line_3.style.transform = "rotate(45deg) translate(-4.93px, -4.93px)";
   }
 };
+
+
+
+
+const toggleBurgerDropdown = function (arrowId, dropdownId) {
+  const burgerArrow = document.getElementById(arrowId);
+  const burgerDropdown = document.getElementById(dropdownId);
+
+  if (burgerDropdown.style.display == "block") {
+    burgerDropdown.style.display = "none";
+    burgerArrow.style.transform = "rotate(45deg) translate(-5px,5px) scale(1)";
+  } else {
+    burgerDropdown.style.display = "block";
+    burgerArrow.style.transform = "rotate(45deg) translate(5px, 15px) scale(-1)";
+  }
+}

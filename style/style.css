@@ -28,7 +28,7 @@
   transform: none;
 }
 
-.burger_icon_line{
+.burger_icon_line {
   background: currentcolor;
   height: 2px;
   left: 12px;
@@ -38,8 +38,9 @@
   transform: none;
 }
 
-
-.burger{
+.burger {
+  overflow-x: hidden;
+  overflow-y: auto;
   background: #191e1e;
   height: 100%;
   left: 0;
@@ -51,29 +52,68 @@
   transition: 0.6s cubic-bezier(0, 0, 0, 1);
 }
 
-.burger_menu{
+.burger_menu {
   margin: 0;
   padding: 3rem;
+  
 }
 
-.burger_menu li{
-  border-bottom: 1px solid hsla(0, 0%, 100%, .4);
+.burger_menu li {
   display: block;
-  height: 60px;
-  margin: 1rem 0;
   font-size: 2rem;
 }
-.burger_menu li a{
-  color: white; 
-  text-decoration: none;
+
+.burger-navlink {
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
+  margin: 1rem 0;
+  padding: 15px 0;
 }
 
-.burger_menu li a:hover {
+.burger-dropdown li a {
+  color: #98afae;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.2rem 0;
+}
+
+.burger-dropdown {
+  position: relative;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.burger-dropdown li :hover {
   color: #6db33f;
 }
 
 
+.burger-dropdown li {
+  border: 0;
+  position: relative;
+}
 
+.burger-navlink:hover {
+  color: #6db33f;
+}
+
+.burger-arrow {
+  border: solid #98afae;
+  border-width: 0 2px 2px 0;
+  content: " ";
+  display: block;
+  height: 15px;
+  position: absolute;
+  right: 5px;
+  top: 30px;
+  transform: rotate(45deg) translate(-5px,5px) scale(1);
+  transition: transform 0.2s ease-out;
+  width: 15px;
+}
 
 .logo {
   max-height: 50px;
@@ -118,7 +158,6 @@ p {
   min-height: 100%;
   padding-right: 50px;
   line-height: 35px;
-  
 }
 
 hr {
@@ -134,6 +173,7 @@ hr {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   list-style-type: none;
   padding: 15px;
+  z-index: 1;
 }
 
 .dropdown-content li {
@@ -221,26 +261,22 @@ main {
   margin-bottom: 10px;
 }
 
-
-
 /* media requests */
 
 @media (min-width: 1000px) {
   .card {
     width: calc((90% - 20px) / 3);
   }
-
 }
 
 @media (min-width: 900px) {
-  .burger{
+  .burger {
     visibility: hidden !important;
   }
 }
 
-
 @media (max-width: 900px) {
-  header{
+  header {
     margin-top: 6rem;
   }
   .nav-list {
@@ -250,7 +286,7 @@ main {
     display: block;
     right: 0;
   }
-  .navbar-wrapper{
+  .navbar-wrapper {
     position: fixed;
     border-bottom: 1px solid #ebf2f2;
     height: 40px;
