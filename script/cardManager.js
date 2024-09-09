@@ -32,7 +32,7 @@ class CardManager {
     //card
     this.card = document.createElement("div");
     this.card.className = "card";
-    this.card.id = id;
+    this.card.id = "card-" + id;
 
     //------------card info--------
 
@@ -47,10 +47,12 @@ class CardManager {
 
     //description header
     this.descriptionHeader = document.createElement("h1");
+    this.descriptionHeader.className = "card-title";
     this.descriptionHeader.innerText = header;
 
     //description paragraph
     this.descriptionParagraph = document.createElement("p");
+    this.descriptionParagraph.className = "card-paragraph";
     this.descriptionParagraph.innerText = description;
   }
 }

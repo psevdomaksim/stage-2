@@ -3,8 +3,6 @@ burgerBtn.onclick = toggleBurgerButton;
 const cardsWrapper = new Cards();
 cardsWrapper.fillCards(cards);
 
-console.log(navbarItems);
-
 const navbarWrapper = new NavbarItems();
 navbarWrapper.fillNavbar(navbarItems);
 
@@ -24,3 +22,7 @@ for (let i = 0; i < burgerNavlinkElements.length; i++) {
       burgerDropdownElements[i].getAttribute("id")
     );
 }
+
+
+
+

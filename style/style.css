@@ -115,6 +115,32 @@
   width: 15px;
 }
 
+
+.search-container {
+  text-align: center;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 20%;
+  border: 2px solid #1b9d54;
+  border-radius: 10px;
+  outline: none;
+}
+
+.search-input:focus {
+  border: 2px solid #138243;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+
 .logo {
   max-height: 50px;
 }
@@ -216,6 +242,7 @@ main {
   background-color: #ebf2f2;
   width: 100%;
   height: auto;
+  padding: 20px 0;
 }
 
 .cards {
@@ -294,7 +321,7 @@ main {
     top: 0;
     z-index: 1;
   }
-}
+} 
 
 @media (min-width: 800px) and (max-width: 1000px) {
   .cards {
@@ -307,6 +334,9 @@ main {
   .header-h1 {
     padding: 0 1rem;
   }
+  .search-input{
+    width: 50%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -316,6 +346,9 @@ main {
   .header-description,
   .header-h1 {
     padding: 0 1rem;
+  }
+  .search-input{
+    width: 70%;
   }
 }
 
