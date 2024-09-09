@@ -5,7 +5,12 @@ const searchInput = document.getElementById("search-input");
 function filtercards() {
   const searchText = searchInput.value.toLowerCase();
   if (!searchText) {
-    cardsItems.forEach((item) => (item.style.visibility = "visible"));
+    cardsContainer.innerHTML = "";
+    cardsItems.forEach((item) => {
+      if (item.style.visibility === "visible") {
+        cardsContainer.appendChild(item);
+      }
+    });
     return;
   }
 
