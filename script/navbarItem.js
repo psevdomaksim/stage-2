@@ -3,7 +3,7 @@ fillNavbar = function (navbarItems) {
   const navbarWrapper = document.getElementById("nav-list");
 
   navbarItems.forEach((el) => {
-    const obj = new NavnbarItemBuilder(el.id)
+    const obj = new NavbarItemBuilder(el.id)
       .setHeader(el.header)
       .setDropdown(el.dropdownItems)
       .build();
@@ -45,7 +45,7 @@ class NavbarItem {
   }
 }
 
-class NavnbarItemBuilder {
+class NavbarItemBuilder {
   constructor(id) {
     this.navbarItem = document.createElement("li");
     this.navbarItem.id = id;

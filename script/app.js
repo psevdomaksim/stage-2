@@ -2,9 +2,7 @@ burgerBtn.onclick = toggleBurgerButton;
 
 fillCards(cards);
 fillNavbar(navbarItems);
-
-const burgerWrapper = new BurgerMenuItems();
-burgerWrapper.fillBurger(navbarItems);
+fillBurger(navbarItems);
 
 //adding event listeners on burger dropdowns
 const burgerNavlinkElements = document.getElementsByClassName("burger-navlink");

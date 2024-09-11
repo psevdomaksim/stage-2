@@ -1,62 +1,103 @@
-class BurgerMenuItems {
-  constructor() {
-    if (BurgerMenuItems._instance) {
-      return BurgerMenuItems._instance;
-    }
+//filling burger wrapper
+fillBurger = function (burgerItems) {
+  const burgerWrapper = document.getElementById("burger_menu");
 
-    BurgerMenuItems._instance = this;
-    this.burgerWrapper = document.getElementById("burger_menu");
-  }
+  burgerItems.forEach((el) => {
+    const obj = new BurgerItemBuilder(el.id)
+      .setHeader(el.id, el.header)
+      .setDropdown(el.dropdownItems)
+      .setArrowIcon(el.id)
+      .build();
 
-  //filling burger wrapper
-  fillBurger = function (burgerItems) {
-    for (let i = 0; i < burgerItems.length; i++) {
-      const obj = new BurgerMenuItem(
-        burgerItems[i].id,
-        burgerItems[i].linkHeader,
-        burgerItems[i].dropdownItems
-      );
+    //Dropdown content
+    obj.getDropdownItems().forEach((el) => {
+      el.li.append(el.a);
+      obj.getDropdownWrapper().append(el.li);
+    });
 
-      //dropdown content
-      for (let i = 0; i < obj.dropdownItems.length; i++) {
-        obj.dropdownItems[i].li.append(obj.dropdownItems[i].a);
-        obj.dropdownWrapper.append(obj.dropdownItems[i].li);
-      }
+    obj.getHeader().append(obj.getArrowIcon());
+    obj.getBurgerItem().append(obj.getHeader(), obj.getDropdownWrapper());
 
-      obj.header.append(obj.arrowIcon);
-      obj.burgerItem.append(obj.header, obj.dropdownWrapper);
-
-      this.burgerWrapper.append(obj.burgerItem);
-    }
-  };
-}
+    burgerWrapper.append(obj.getBurgerItem());
+  });
+};
 
 class BurgerMenuItem {
-  constructor(id, header, dropdownItems) {
+  constructor(burgerItem, header, arrowIcon, dropdownWrapper, dropdownItems) {
+    this.burgerItem = burgerItem;
+    this.header = header;
+    this.arrowIcon = arrowIcon;
+    this.dropdownWrapper = dropdownWrapper;
+    this.dropdownItems = dropdownItems;
+  }
+
+  getBurgerItem() {
+    return this.burgerItem;
+  }
+
+  getHeader() {
+    return this.header;
+  }
+
+  getArrowIcon() {
+    return this.arrowIcon;
+  }
+
+  getDropdownWrapper() {
+    return this.dropdownWrapper;
+  }
+
+  getDropdownItems() {
+    return this.dropdownItems;
+  }
+}
+
+class BurgerItemBuilder {
+  constructor(id) {
     this.burgerItem = document.createElement("li");
-
-    this.header = document.createElement("span");
-    this.header.className = "burger-navlink";
-    this.header.id = "burger-navlink-" + id;
-    this.header.innerText = header;
-
-    this.arrowIcon = document.createElement("span");
-    this.arrowIcon.className = "burger-arrow";
-    this.arrowIcon.id = "burger-arrow-" + id;
 
     this.dropdownWrapper = document.createElement("ul");
     this.dropdownWrapper.className = "burger-dropdown";
     this.dropdownWrapper.id = "burger-dropdown-" + id;
+  }
 
-    //filling dropdown content
+  //Header
+  setHeader(id, header) {
+    this.header = document.createElement("span");
+    this.header.className = "burger-navlink";
+    this.header.id = "burger-navlink-" + id;
+    this.header.innerText = header;
+    return this;
+  }
 
+  //Arrow icon
+  setArrowIcon(id) {
+    this.arrowIcon = document.createElement("span");
+    this.arrowIcon.className = "burger-arrow";
+    this.arrowIcon.id = "burger-arrow-" + id;
+    return this;
+  }
+
+  //Dropdown content
+  setDropdown(dropdownItems) {
     this.dropdownItems = [...dropdownItems];
+    this.dropdownItems.forEach((el) => {
+      el.li = document.createElement("li");
+      el.a = document.createElement("a");
+      el.a.innerText = el.header;
+      el.a.href = el.href;
+    });
 
-    for (let i = 0; i < dropdownItems.length; i++) {
-      this.dropdownItems[i].li = document.createElement("li");
-      this.dropdownItems[i].a = document.createElement("a");
-      this.dropdownItems[i].a.innerText = this.dropdownItems[i].header;
-      this.dropdownItems[i].a.href = this.dropdownItems[i].href;
-    }
+    return this;
+  }
+
+  build() {
+    return new BurgerMenuItem(
+      this.burgerItem,
+      this.header,
+      this.arrowIcon,
+      this.dropdownWrapper,
+      this.dropdownItems
+    );
   }
 }
