@@ -46,7 +46,7 @@ const cards = [
 const navbarItems = [
   {
     id: "1",
-    linkHeader: "Why Spring",
+    header: "Why Spring",
     dropdownItems: [
       {
         header: "Microservices",
@@ -82,7 +82,7 @@ const navbarItems = [
 
   {
     id: "2",
-    linkHeader: "Learn",
+    header: "Learn",
     dropdownItems: [
       {
         header: "Overview",
@@ -106,7 +106,7 @@ const navbarItems = [
 
   {
     id: "3",
-    linkHeader: "Projects",
+    header: "Projects",
     dropdownItems: [
       {
         header: "Overview",
@@ -138,7 +138,7 @@ const navbarItems = [
 
   {
     id: "4",
-    linkHeader: "Academy",
+    header: "Academy",
     dropdownItems: [
       {
         header: "Courses",
@@ -153,7 +153,7 @@ const navbarItems = [
 
   {
     id: "5",
-    linkHeader: "Solutions",
+    header: "Solutions",
     dropdownItems: [
       {
         header: "Overview",
@@ -181,7 +181,7 @@ const navbarItems = [
 
   {
     id: "6",
-    linkHeader: "Community",
+    header: "Community",
     dropdownItems: [
       {
         header: "Overview",

@@ -1,26 +1,29 @@
-
-  //Filling cards wrapper
-  fillCards = function (cards) {
-    const cardsWrapper = document.getElementById("cards");
-    for (let i = 0; i < cards.length; i++) {
-      const obj = new CardBuilder(cards[i].id)
-      .setImage(cards[i].header, cards[i].src)
-      .setDescriptionHeader(cards[i].header)
-      .setDescriptionText( cards[i].description)
+//Filling cards wrapper
+fillCards = function (cards) {
+  const cardsWrapper = document.getElementById("cards");
+  cards.forEach((el) => {
+    const obj = new CardBuilder(el.id)
+      .setImage(el.header, el.src)
+      .setDescriptionHeader(el.header)
+      .setDescriptionText(el.description)
       .build();
-    
-      obj.getCardDescription().append(
-        obj.getDescriptionHeader(),
-        obj.getDescriptionParagraph()
-      );
-      obj.getCard().append(obj.getCardImage(), obj.getCardDescription());
-      cardsWrapper.append(obj.getCard());
-    }
-  };
 
+    obj
+      .getCardDescription()
+      .append(obj.getDescriptionHeader(), obj.getDescriptionParagraph());
+    obj.getCard().append(obj.getCardImage(), obj.getCardDescription());
+    cardsWrapper.append(obj.getCard());
+  });
+};
 
 class Card {
-  constructor(card, image, cardDescription, descriptionHeader,descriptionParagraph) {
+  constructor(
+    card,
+    image,
+    cardDescription,
+    descriptionHeader,
+    descriptionParagraph
+  ) {
     this.card = card;
     this.cardImage = image;
     this.cardDescription = cardDescription;
@@ -28,23 +31,23 @@ class Card {
     this.descriptionParagraph = descriptionParagraph;
   }
 
-  getCard(){
+  getCard() {
     return this.card;
   }
 
-  getCardImage(){
+  getCardImage() {
     return this.cardImage;
   }
 
-  getCardDescription(){
+  getCardDescription() {
     return this.cardDescription;
   }
 
-  getDescriptionHeader(){
+  getDescriptionHeader() {
     return this.descriptionHeader;
   }
 
-  getDescriptionParagraph(){
+  getDescriptionParagraph() {
     return this.descriptionParagraph;
   }
 }
@@ -59,7 +62,6 @@ class CardBuilder {
     //Description container
     this.cardDescription = document.createElement("div");
     this.cardDescription.className = "card-description";
-
   }
 
   //Image
@@ -72,7 +74,6 @@ class CardBuilder {
 
   //Description header
   setDescriptionHeader(header) {
-    
     this.descriptionHeader = document.createElement("h1");
     this.descriptionHeader.className = "card-title";
     this.descriptionHeader.innerText = header;
@@ -80,16 +81,21 @@ class CardBuilder {
     return this;
   }
   //Description text
-  setDescriptionText(description){
-   
-     this.descriptionParagraph = document.createElement("p");
-     this.descriptionParagraph.className = "card-paragraph";
-     this.descriptionParagraph.innerText = description;
+  setDescriptionText(description) {
+    this.descriptionParagraph = document.createElement("p");
+    this.descriptionParagraph.className = "card-paragraph";
+    this.descriptionParagraph.innerText = description;
 
-     return this;
+    return this;
   }
 
   build() {
-    return new Card(this.card, this.image, this.cardDescription, this.descriptionHeader,this.descriptionParagraph);
+    return new Card(
+      this.card,
+      this.image,
+      this.cardDescription,
+      this.descriptionHeader,
+      this.descriptionParagraph
+    );
   }
 }
