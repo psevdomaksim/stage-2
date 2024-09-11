@@ -1,7 +1,6 @@
 burgerBtn.onclick = toggleBurgerButton;
 
-const cardsWrapper = new Cards();
-cardsWrapper.fillCards(cards);
+fillCards(cards);
 
 const navbarWrapper = new NavbarItems();
 navbarWrapper.fillNavbar(navbarItems);
